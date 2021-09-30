@@ -7,6 +7,17 @@
     grid-template-columns: 1fr 8fr;
 }
 
+.no-content{
+    background-color: aliceblue;
+    height: 90vh;
+    display: block;
+}
+
+.no-data{
+    width: 12rem;
+    color:blue;
+}
+
 .sidebar{
     background-color:  rgb(33, 33, 235);
 }

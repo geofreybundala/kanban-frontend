@@ -1,29 +1,19 @@
 <app-header></app-header>
-<section class="content">
-    <div class="sidebar">side bar</div>
-    <div class="kanban-cards">
-        <div class="kanban-card">
+<section [class]=" List.length != 0 ? 'content' : 'no-content'">
+    <!-- <div class="sidebar">side bar</div> -->
+    <div *ngIf="List.length != 0" class="kanban-cards">
+        <div *ngFor="let list of List" class="kanban-card">
             <div class="kanban-card-header">
-                Contentsxxxxxx
+                {{ list.name }}
             </div>
-            </div>
-        <div class="kanban-card">Contents</div>
-        <div class="kanban-card">Contents</div>
-        <div class="kanban-card">Contentsxxxxxx</div>
-        <div class="kanban-card">Contents</div>
-        <div class="kanban-card">Contents</div>
-        <div class="kanban-card">Contentsxxxxxx</div>
-        <div class="kanban-card">Contents</div>
-        <div class="kanban-card">Contents</div>
-        <div class="kanban-card">Contentsxxxxxx</div>
-        <div class="kanban-card">Contents</div>
-        <div class="kanban-card">Contents</div>
-        <div class="kanban-card">Contentsxxxxxx</div>
-        <div class="kanban-card">Contents</div>
-        <div class="kanban-card">Contents</div>
-        <div class="kanban-card">Contentsxxxxxx</div>
-        <div class="kanban-card">Contents</div>
-        <div class="kanban-card">Contents</div>
+        </div>
     </div>
+
+    <!-- Show it when there is no employee -->
+    <div class="no-data text-center mx-auto my-auto" *ngIf="List.length == 0">
+        <p>There is no List added yet!</p>
+        <button class="btn btn-outline-primary" routerLink="/create-employee">Add List</button>
+    </div>
+
 </section>
 
