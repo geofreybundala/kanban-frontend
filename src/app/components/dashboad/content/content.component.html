@@ -1,6 +1,6 @@
 <app-header></app-header>
-<section [class]=" List.length != 0 ? 'content' : 'no-content'">
-    <!-- <div class="sidebar">side bar</div> -->
+<section [class]="List.length != 0 ? 'content' : 'no-content'">
+    <div class="sidebar">side bar</div>
     <div *ngIf="List.length != 0" class="kanban-cards">
         <div *ngFor="let list of List" class="kanban-card">
             <div class="kanban-card-header">
@@ -12,8 +12,33 @@
     <!-- Show it when there is no employee -->
     <div class="no-data text-center mx-auto my-auto" *ngIf="List.length == 0">
         <p>There is no List added yet!</p>
-        <button class="btn btn-outline-primary" routerLink="/create-employee">Add List</button>
+        <button class="btn btn-outline-primary"  data-bs-toggle="modal" data-bs-target="#addModal">Add List</button>
     </div>
 
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add List</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">title</label>
+                <input type="text" class="form-control" [(ngModel)] = "listDetails.name" >
+              </div>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="addList()">Save </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 

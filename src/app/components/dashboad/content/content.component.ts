@@ -1,5 +1,5 @@
 import { ApiService } from './../../../services/api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-content',
@@ -9,12 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class ContentComponent implements OnInit {
 
   List: any =[];
+  @Input() listDetails = { name: '', }
   constructor(private apiservice :ApiService) { }
 
   ngOnInit(): void {
     this.apiservice.findAll('list').subscribe((data: any) =>{
       this.List = data;
     })
+  }
+
+  addList() : void{
+ this.apiservice.create('list',this.listDetails).subscribe((data:any)=>{
+      console.log(data);
+    });
   }
 
 }

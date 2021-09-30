@@ -12,11 +12,15 @@ private BASE_URL = 'http://localhost:3000/';
     return this.httpClient.get(this.BASE_URL+resource);
   }
 
+  public create(resource: string, params: any){
+    return this.httpClient.post(`${this.BASE_URL}${resource}`,params)
+  }
+
   public findOne(resource:string,id: string){
     return this.httpClient.get(`${this.BASE_URL}${resource}/${id}`);
   }
 
-    // public update(resource:string,id: string){
+  //   public update(resource:string,id: string){
   //   return this.httpClient.patch(`${this.BASE_URL}${resource}/${id}`);
   // }
 
