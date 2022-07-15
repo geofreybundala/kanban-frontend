@@ -13,9 +13,11 @@ export class ContentComponent implements OnInit {
   constructor(private apiservice :ApiService) { }
 
   ngOnInit(): void {
-    this.apiservice.findAll('list').subscribe((data: any) =>{
-      this.List = data;
-    })
+    // this.apiservice.findAll('list').subscribe((data: any) =>{
+    //   this.List = data;
+    // })
+    console.log(this.apiservice.findAll('list'));
+    this.List = this.apiservice.findAll('list');
   }
 
   addList() : void{

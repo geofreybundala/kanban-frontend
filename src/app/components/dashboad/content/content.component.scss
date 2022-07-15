@@ -1,25 +1,34 @@
-@import url('../../../app.component.scss');
+@import '../../../app.component.scss';
+
+section{
+   background-image: linear-gradient(to right, rgba(94, 56, 56, 0), rgb(147, 169, 220));
+    height: 90vh;
+}
 
 .content{
-    background-color: aliceblue;
-    height: 90vh;
     display: grid;
     grid-template-columns: 1fr 8fr;
 }
 
 .no-content{
-    background-color: aliceblue;
-    height: 90vh;
     display: block;
 }
 
 .no-data{
     width: 12rem;
-    color:blue;
+    color: $bg-primary-color;
 }
 
 .sidebar{
-    background-color:  rgb(33, 33, 235);
+    background-color:  $bg-primary-color;
+    height: 90vh;
+    span {
+        padding: 0.9rem;
+        display: flex;
+        flex-direction: row;
+        color: $white;
+        text-decoration: wavy;
+    }
 }
 
 
@@ -33,7 +42,7 @@
 }
 
 .kanban-card{
-    background-color:white;
+    background-color: $white;
     min-width: 20rem;
     border-radius: .3rem;
     text-align: center;
@@ -41,10 +50,11 @@
     .kanban-card-header{
         height: 3.5rem;
         padding:1rem 0rem;
-        background-color:rgb(200, 206, 255);
+        background-color: $bg-secondary-color;
         border-top-left-radius: 0.3rem;
         border-top-right-radius: 0.3rem;
-        color: white;
+        color: $white;
+        text-decoration: wavy;
     }
 }
 

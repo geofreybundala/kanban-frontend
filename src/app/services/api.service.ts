@@ -7,9 +7,12 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
 private BASE_URL = 'http://localhost:3000/';
   constructor(private httpClient: HttpClient) { }
+   fakeData: {name: string}[] = [{name: 'Backlog'}, {name: 'Develop'}, {name: 'Staging'},{name: 'Production'}, {name: 'Done'}, {name: 'Done'}]
 
   public findAll(resource: string){
-    return this.httpClient.get(this.BASE_URL+resource);
+    return this.fakeData;
+    return [];
+    //return this.httpClient.get(this.BASE_URL+resource);
   }
 
   public create(resource: string, params: any){
